@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: white;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 270px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .swiper-slide p {
+            font-size: 14px;
+            color: darkgray;
+        }
+
+        .mySwiper .swiper-wrapper {
+            margin-left: 20px;
+            margin-right: 20px;
+
+        }
+
+        .mySwiper {
+            position: relative;
+            width: calc(100% - 160px) !important;
+            border: solid 1px red;
+        }
+
+        .swiper-button-next {
+            position: absolute;
+        }
+
+        .swiper-button-prev {
+            position: absolute;
+        }
+
+        .get_job_focus {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="get_job_focus">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="#"><img src="./images/pic.png" alt="" /></a>
+                    <p>老师教你应对面试技巧</p>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#"><img src="./images/ldh.jpg" alt="" /></a>
+                    <p>老师教你应对面试技巧</p>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#"><img src="./images/3.jpg" alt="" /></a>
+                    <p>老师教你应对面试技巧</p>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="#"><img src="./images/3.jpg" alt="" /></a>
+                    <p>老师教你应对面试技巧</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Add Arrows 根据需求这个代码放到 container外面 添加左右箭头-->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+
+</body>
+
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 2,
+        centeredSlides: true,
+        loop: true,
+        // 添加左右箭头
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+
+</html>
