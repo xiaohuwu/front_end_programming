@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    padding: .2667rem .1333rem;
+    display: flex;
+    align-items: center;
+
+    .log {
+        width: 2.1333rem;
+        height: .5333rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .search {
+
+        height: .6667rem;
+        padding-left: .2667rem;
+        padding-right: .2667rem;
+        margin-left: .2667rem;
+        margin-right: .2667rem;
+        border-radius: 10px;
+        flex: 1;
+        background: #f3f3f3 url(../img/btn_search2.png) no-repeat right .2667rem center;
+        background-size: .4267rem .4267rem;
+
+        input {
+            padding-left: .2667rem;
+            padding-right: .2667rem;
+            height: 100%;
+            background-color: transparent;
+            outline: none;
+            border: none;
+        }
+
+    }
+
+    .login {
+        padding: .1333rem;
+        color: #ffa800;
+    }
+
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+
+    .item {
+        width: 25%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: .2133rem;
+
+        .title {
+            margin-bottom: .1667rem;
+            width: 1.2rem;
+            height: 1.2rem;
+            background: url(../img/i_nav6.png) no-repeat;
+            background-position: 0 0;
+            background-size: 5rem 2.5rem;
+        }
+
+        &:nth-child(2) .title {
+            background-position: -1.25rem 0;
+        }
+
+        &:nth-child(3) .title {
+            background-position: (-1.25rem * 2) 0;
+        }
+
+        &:nth-child(4) .title {
+            background-position: (-1.25rem * 3) 0;
+        }
+
+        &:nth-child(5) .title {
+            background-position: -1.25rem -1.25rem;
+        }
+
+        &:nth-child(6) .title {
+            background-position: -1.25rem * 2 (-1.25rem) * 1;
+        }
+
+        &:nth-child(7) .title {
+            background-position: -1.25rem * 3 (-1.25rem) * 1;
+        }
+
+    }
+
+}
+
+.Recommended {
+    margin-left: .2667rem;
+    padding-left: .2667rem;
+    border-left: .1333rem solid #ffa800;
+    font-weight: bolder;
+    font-size: .48rem;
+    line-height: .5333rem;
+    margin-bottom: 0px;
+}
+
+ul {
+    li {
+        border-bottom: solid 1px #eeeeee;
+        padding: .5667rem .2667rem;
+
+        h6 {
+            margin: 0px 10px 10px 0px;
+            font-size: 16px;
+        }
+
+        div.desc {
+            display: flex;
+
+            img {
+                width: 3.4667rem;
+                height: 1.8667rem;
+                margin-right: .2133rem;
+            }
+
+            .content {
+                color: #999;
+
+                p {
+                    color: #cccccc;
+                }
+
+                div {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .right {
+                        display: flex;
+                        align-items: center;
+
+                        img {
+                            border-radius: 50%;
+                            margin-left: .2667rem;
+                            width: .5333rem;
+                            height: .5333rem;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
