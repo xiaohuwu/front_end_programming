@@ -1,0 +1,163 @@
+// 导入base.less
+@import url(base.less);
+// 声明基准值变量
+@baseSize: 3.75vw;
+
+// 顶部盒子
+.suspension {
+    background-color: white;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+
+    .m-navbar {
+        padding: (10 / @baseSize);
+        display: flex;
+        justify-content: space-between;
+
+        .logo {
+            i {
+                font-size: 7.46666667vw;
+                color: #fb7299;
+            }
+        }
+
+        .right {
+            display: flex;
+            align-items: center;
+
+            .search {
+                margin-right: (10 / @baseSize);
+
+                i {
+                    font-size: 5.86666667vw;
+                    color: #fb7299;
+                }
+            }
+
+            .face {
+                margin-right: (10 / @baseSize);
+                display: inline-block;
+                width: (24 / @baseSize);
+                height: (24 / @baseSize);
+
+                img {
+                    border-radius: 50%;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .app-btn {
+                margin-right: (10 / @baseSize);
+                width: (72 / @baseSize);
+                height: (24 / @baseSize);
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    // 频道菜单
+    .channel-menu {
+        display: flex;
+        position: relative;
+
+        .tabs {
+            flex: 1;
+            overflow: hidden;
+
+            .tabs-list {
+                display: flex;
+
+                a {
+                    padding: 0 4.26666667vw;
+                    white-space: nowrap;
+                    font-size: 3.73333333vw;
+                    height: 10.66666667vw;
+                    line-height: 10.66666667vw;
+                }
+            }
+        }
+
+        .after {
+            width: (40 / @baseSize);
+            height: (40 / @baseSize);
+            text-align: center;
+            line-height: (40 / @baseSize);
+        }
+
+        .line {
+            position: absolute;
+            bottom: 0;
+            left: 4.26666667vw;
+            width: 7.46666667vw;
+            height: 2px;
+            background-color: #fb7299;
+        }
+    }
+}
+
+
+.m-home {
+    padding: 22.66666667vw 1.33333333vw 0;
+
+    .video-list {
+        display: flex;
+        flex-wrap: wrap;
+
+        .video-item {
+            width: 50%;
+            padding: 2.13333333vw 1.33333333vw;
+
+            .card {
+                position: relative;
+                width: 100%;
+                height: auto;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .count {
+                span {
+                    color: white;
+                }
+
+                padding: (6 / @baseSize);
+                left: 0px;
+                right: 0px;
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0), pink);
+                bottom: 0px;
+                position: absolute;
+            }
+
+            .title {
+                font-size: (12 / @baseSize);
+            }
+        }
+    }
+}
+
+.app {
+    padding: (10 / @baseSize) (20 / @baseSize);
+    color: white;
+    position: fixed;
+    bottom: (30 / @baseSize);
+    width: 85%;
+    left: 50%;
+    border-radius: (20/@baseSize);
+    background-color: #fb7299;
+    transform: translateX(-50%);
+
+    .btn-app {
+        text-align: center;
+    }
+}
