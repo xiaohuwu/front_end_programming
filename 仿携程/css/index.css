@@ -98,3 +98,115 @@ a {
 .local-nav li a .local-nav-icon-icon5 {
   background-position: 0px -128px;
 }
+nav {
+  background-color: white;
+}
+nav .nav-common {
+  display: flex;
+}
+nav .nav-common .nav-items {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+nav .nav-common .nav-items a {
+  width: 100%;
+  display: block;
+  text-align: center;
+  height: 44px;
+  line-height: 44px;
+  color: white;
+}
+nav .nav-common .nav-items:nth-child(1) {
+  height: 88px;
+  background: url(../images/hotel.png) no-repeat bottom center;
+  background-size: 120px auto;
+}
+nav .nav-common .nav-items:nth-child(2) a,
+nav .nav-common .nav-items:nth-child(3) a {
+  border-left: solid 1px white;
+  border-bottom: solid 1px white;
+}
+nav .nav-common:first-child {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background: -webkit-linear-gradient(left, #FA5A55, #FA994D);
+  margin-bottom: 1px;
+}
+nav .nav-common:nth-child(2) {
+  background: -webkit-linear-gradient(left, #4B90ED, #53BCED);
+  margin-bottom: 1px;
+}
+nav .nav-common:nth-child(3) {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: -webkit-linear-gradient(left, #34C2A9, #6CD559);
+}
+.subnav-entry {
+  padding: 10px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  border-radius: 5px;
+}
+.subnav-entry li {
+  margin-bottom: 10px;
+  list-style: none;
+  flex-basis: 20%;
+}
+.subnav-entry li a {
+  display: flex;
+  flex-direction: column;
+  color: #222;
+  align-items: center;
+}
+.subnav-entry li a .subnav-entry-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 5px;
+  background: url(../images/subnav-bg.png) no-repeat;
+  background-size: 24px auto;
+}
+.sales-box .sales-hd {
+  position: relative;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 10px;
+  border-bottom: solid 1px #ccc;
+  align-items: center;
+}
+.sales-box .sales-hd h2 {
+  text-indent: -999px;
+  overflow: hidden;
+}
+.sales-box .sales-hd h2::before {
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  content: '';
+  width: 80px;
+  height: 20px;
+  display: inline-block;
+  background: url(../images/hot.png) no-repeat 0px -15px;
+  background-size: 80px auto;
+  vertical-align: middle;
+}
+.sales-box .sales-hd .more {
+  background: -webkit-linear-gradient(left, #FF506C, #FF6BC6);
+  padding: 8px 12px;
+  border-radius: 15px;
+  color: white;
+}
+.sales-box .sales-bd .row {
+  display: flex;
+}
+.sales-box .sales-bd .row a {
+  flex-basis: 50%;
+}
+.sales-box .sales-bd .row a img {
+  width: 100%;
+  height: auto;
+}
