@@ -1,0 +1,116 @@
+body {
+    max-width: 750px;
+    background-color: #f2f2f2;
+    min-width: 320px;
+    max-width: 540px;
+    margin: 0px auto;
+    color: #000;
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.search-index {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    min-width: 320px;
+    max-width: 540px;
+
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 44px;
+    border-bottom: 1px solid #ccc;
+    font-size: 12px;
+    background: #F6F6F6;
+
+    .search {
+        margin: 0px 10px;
+        flex: 1;
+        height: 26px;
+        line-height: 26px;
+        border: solid 1px #eeeeee;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+
+        &::before {
+            margin-left: 10px;
+            vertical-align: middle;
+            content: '';
+            height: 26px;
+            width: 26px;
+            display: inline-block;
+            background: url(../images/sprite.png) no-repeat -59px -274px;
+            background-size: 104px auto;
+        }
+    }
+
+    .user {
+        color: #2eaae0;
+        display: flex;
+        flex-direction: column;
+
+        &::before {
+            content: '';
+            height: 23px;
+            width: 23px;
+            display: block;
+            background: url(../images/sprite.png) no-repeat -59px -194px;
+            background-size: 104px auto;
+        }
+    }
+
+}
+
+.focus {
+    padding-top: 45px;
+
+    img {
+        width: 100%;
+    }
+}
+
+.local-nav {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 10px;
+
+    li {
+        font-size: 12px;
+        list-style: none;
+        width: 20%;
+
+        a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #222;
+
+            [class^="local-nav-icon"] {
+                width: 32px;
+                height: 32px;
+                margin-bottom: 5px;
+                background: url(../images/localnav_bg.png);
+                background-size: 32px auto;
+            }
+            .local-nav-icon-icon2 {
+                background-position: 0px (-32px * 1);
+            }
+            .local-nav-icon-icon3 {
+                background-position: 0px (-32px* 2);
+            }
+            .local-nav-icon-icon4 {
+                background-position: 0px (-32px* 3);
+            }
+            .local-nav-icon-icon5 {
+                background-position: 0px (-32px* 4);
+            }
+
+        }
+    }
+
+}
