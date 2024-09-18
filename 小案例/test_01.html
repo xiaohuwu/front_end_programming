@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="display: table; width: 100px;">
+        <div style="display: table-row;">
+            <div style="display: table-cell; width: 50%; background-color: lightblue;">
+                左侧内容较少
+            </div>
+            <div style="display: table-cell; width: 50%; background-color: lightgreen;">
+                右侧内容非常多，自动让左侧等高
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    // async function fetchData(url) {
+    //     let response = await fetch(url)
+    //     let detail = response.json()
+    //     return detail;
+    // }
+
+    // async function get() {
+    //     let res = await fetchData("https://jsonplaceholder.typicode.com/posts")
+    //     console.log(res[0].title)
+    // }
+    // get();
+
+
+
+    // let fruits = ['apple', 'banana', 'mango'];
+
+    // let capitalizeFruits = fruits.map(fruit => {
+    //     return fruit.toUpperCase();
+    // });
+
+    // console.log(capitalizeFruits);
+
+
+    const numbers = [1, 2, 3, 4, 5];
+    let result = numbers.filter(num => {
+        return num % 2 === 0
+    });
+
+    console.log(result);
+
+
+    class Person {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        introduce() {
+            console.log(`Hi, I'm ${this.name} and I'm ${this.age} years old.`);
+        }
+    }
+
+    const john = new Person('John', 30);
+
+    const introduceLater = (person, delay) => {
+        
+        new Promise((resolve) => {
+            setTimeout(() => {
+                person.introduce();
+                resolve();
+            }, delay);
+        });
+
+    };
+
+    let delay = 2000;
+    introduceLater(john, delay).then(() => {
+        console.log('Introduction done.');
+    });
+
+
+
+</script>
+
+</html>
