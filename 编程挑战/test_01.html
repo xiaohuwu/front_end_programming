@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const arr = [23, 1, 2, 3, 4, 4]
+    let result = [... new Set(arr)]
+    let users = [{ name: 'a', age: false },
+    { name: 'b', age: false },
+    { name: 'c', age: true }]
+    function countyBy(arr, call) {
+        let result = {}
+        for (let i = 0; i < arr.length; i++) {
+            let item = arr[i]
+            let key = call(item)
+            if (result[key]) {
+                result[key]++
+            } else {
+                result[key] = 1
+            }
+        }
+        return result
+    }
+    let result2 = countyBy(users, item => item.age)
+    console.log(result2)
+
+
+    function chunk(array, size = 1) {
+        let result = []
+        for (let k = 0; k < array.length; k += size) {
+            item = []
+            for (let j = k; j < k + size; j++) {
+                array[j] && item.push(array[j]);
+            }
+            result.push(item)
+        }
+        return result;
+    }
+
+    function trimExtraSpaces(str) {
+        return str.trim();
+    }
+
+    trimExtraSpaces("  Hello    World!  ") // "Hello World!"
+    trimExtraSpaces("  This   is   a    test.  ") // "This is a test."
+
+
+
+    const user1s = [
+        { id: 1, name: 'Alice' },
+        { id: 2, name: 'Bob' },
+        { id: 1, name: 'Alice' },
+        { id: 3, name: 'Charlie' }
+    ];
+
+    function uniqueBy(arr, pro) {
+        let result = []
+        for (item of arr) {
+            let found = result.find((child) => child[pro] == item[pro])
+            if (!found) {
+                result.push(item)
+            }
+        }
+        return result;
+    }
+    uniqueBy(user1s, 'id') // [{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }, { id: 3, name: 'Charlie' }]
+
+    function charFrequency(str) {
+        if (str?.trim()?.length == 0) {
+            return {};
+        }
+        let arr = str.trim().split("")
+        let result = {}
+        for (item of arr) {
+            if (result[item.toLowerCase()]) {
+                result[item.toLowerCase()] += 1
+            } else {
+                result[item.toLowerCase()] = 1
+            }
+        }
+        return result;
+    }
+    charFrequency("Hello World") // { h: 1, e: 1, l: 3, o: 2, w: 1, r: 1, d: 1 }
+    charFrequency("AaBbCc") // { a: 2, b: 2, c: 2 }
+
+
+    function intersection(arr1, arr2) {
+        let temp = arr1.length > arr2.length ? arr1 : arr2;
+        result = []
+        for (item of temp) {
+            if (arr2.includes(item) && !result.includes(item)) {
+                result.push(item)
+            }
+        }
+        return result;
+    }
+
+    intersection([1, 2, 2, 3], [2, 3, 4])
+
+
+    function flatten(arr1) {
+        let result = []
+        for (item of arr1) {
+            if (Array.isArray(item)) {
+                let child_array = flatten(item)
+                result = result.concat(child_array)
+            } else {
+                result.push(item)
+            }
+        }
+        return result;
+    }
+
+
+    flatten([1, [2, 3], [4, [5, 6]]])
+
+
+    const people = [
+        { name: 'Alice', group: 'A' },
+        { name: 'Bob', group: 'B' },
+        { name: 'Charlie', group: 'A' },
+        { name: 'David', group: 'B' }
+    ];
+
+    function groupBy(arr, pro) {
+        let result = {}
+        for (let i = 0; i < arr.length; i++) {
+            let item = arr[i]
+            let key = item[pro]
+            if (result[key]) {
+                result[key].push(item)
+            } else {
+                result[key] = [item]
+            }
+        }
+        return result
+    }
+    groupBy(people, 'group')
+    // { 
+    //   A: [{ name: 'Alice', group: 'A' }, { name: 'Charlie', group: 'A' }],
+    //   B: [{ name: 'Bob', group: 'B' }, { name: 'David', group: 'B' }]
+    // }
+
+    function deepClone(original) {
+        if (val == null || typeof val != 'object') {
+            return original
+        }
+        if (Array.isArray(original)) {
+            return original.map((item) => { deepClone(item) })
+        }
+        if (original instanceof Date) {
+            return new Date(original); // 处理 Date 类型
+        }
+
+        if (original instanceof RegExp) {
+            return new RegExp(original); // 处理 RegExp 类型
+        }
+        const result = {};
+        for (const key in original) {
+            if (original.hasOwnProperty(key)) {
+                result[key] = deepClone(original[key]); // 递归拷贝对象属性
+            }
+        }
+        return result;
+    }
+
+    const original = { a: 1, b: { c: 2, d: [3, 4] } };
+    const cloned = deepClone(original);
+    original.b.c = 5;
+    original.b.d.push(6);
+    console.log(cloned);
+    // { a: 1, b: { c: 2, d: [3, 4] } }
+
+
+
+    function compareVersion(v1, v2) {
+        v1 = v1.replaceAll(".", "").split("")
+        v2 = v2.replaceAll(".", "").split("")
+        let max_length = v2.length > v1.length ? v2.length : v1.length
+        for (let k = 0; k < max_length - v1.length; k++) {
+            v1.push("0")
+        }
+        for (let k = 0; k < max_length - v2.length; k++) {
+            v2.push("0")
+        }
+        v1_number = Number(v1.join(""))
+        v2_number = Number(v2.join(""))
+        if (v1_number > v2_number) {
+            return 1
+        } else if (v1_number < v2_number) {
+            return -1
+        } else {
+            return 0
+        }
+    }
+
+
+    console.log(compareVersion("1.0", "1.0.0"))   // 0
+    console.log(compareVersion("1.2", "1.1.5")) // 1
+    console.log(compareVersion("2.1", "2.1.1")) // -1
+
+
+
+    maxSubArraySum([-2, 1, -3, 4, -1, 2, 1, -5, 4]) // 6 (4 + (-1) + 2 + 1)
+    maxSubArraySum([5, 4, -1, 7, 8]) // 23 (5 + 4 + (-1) + 7 + 8)
+
+
+</script>
+
+</html>
