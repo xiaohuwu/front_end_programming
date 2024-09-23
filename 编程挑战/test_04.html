@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function request(urls, maxNumber) {
+            new Promise((resolve, reject) => {
+                let result_back = []
+                let start_index = 0;
+                let finished_count = 0;
+                function myRequest() {
+                    let i = start_index;
+                    fetch(urls[start_index], {
+                        headers: {
+                            'Content-Type': 'application/json', // 设置请求体的类型
+                            'Client-Key': 'db231122139748b79fdd9d9ec2658e18',
+                        }
+                    }).then(async (result) => {
+                        result_back[i] = await result.json();
+                        start_index++;
+                        finished_count++;
+                        if (start_index < urls.length) {
+                            myRequest();
+                        }
+                        if (finished_count === result_back.filter((item) => !!item).length) {
+                            resolve(result_back)
+                        }
+                    })
+                }
+                for (let k = 0; k < maxNumber; k++) {
+                    myRequest();
+                }
+
+            })
+
+        }
+
+        let arr = []
+        for (let k = 0; k < 20; k++) {
+            let item = `http://localhost:3005/api/v1/param?number=${k}`
+            arr.push(item)
+        }
+        request(arr, 3)
+    </script>
+
+</body>
+
+</html>

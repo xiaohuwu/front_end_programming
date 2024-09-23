@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    Array.prototype.myEach = function (callBack) {
+        for (let k = 0; k < this.length; k++) {
+            if (k in this) {
+                callBack.call(this, this[k], k, this);
+            }
+        }
+    }
+
+    let arr = [1, 2, 4]
+    arr.myEach((item) => {
+        console.log(item)
+    })
+
+    class Person {
+        constructor(name) {
+            this.name = name;
+        }
+        greet() {
+            console.log(`Hello, my name is ${this.name}`);
+        }
+    }
+    let person = new Person("xiaohu");
+    person.greet();
+
+
+    function MyPerson(name) {
+        this.name = name;
+    }
+    MyPerson.prototype.greet = function () {
+        console.log(`my name is ${name}`)
+    }
+    p = new MyPerson('Bob');
+    p.greet();
+
+    let persons = [{ name: "xiaohu", age: 24 },
+    { name: "gege", age: 24 },
+    { name: "good", age: 25 },
+    { name: "pan", age: 25 },]
+
+    function countBy(persons, generateKey) {
+        let result = {}
+        for (item of persons) {
+            let key = generateKey(item)
+            if (result[key]) {
+                result[key].push(item)
+            } else {
+                result[key] = [item]
+            }
+        }
+        return result;
+    }
+    let result = countBy(persons, (item) => { return item.age })
+    console.log("result", result)
+
+
+    function Person1(name, age) {
+        this.name = name;
+        this.age = age;
+        this.sayHello = function () {
+            console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+        };
+    }
+
+    function Person2(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // 通过原型链添加方法
+    Person2.prototype.sayHello = function () {
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    };
+
+    // 创建对象实例
+    const person1a = new Person1('Alice', 25);
+    const person1b = new Person1('Bob', 30);
+
+    const person2a = new Person2('Alice', 25);
+    const person2b = new Person2('Bob', 30);
+
+    // 检查方法引用是否相同
+    console.log(person1a.sayHello === person1b.sayHello); // false
+    console.log(person2a.sayHello === person2b.sayHello); // true
+
+</script>
+
+</html>

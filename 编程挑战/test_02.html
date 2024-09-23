@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <script>
+
+        const person = {
+            name: 'John',
+            getName: function () {
+                return this.name;
+            }
+        };
+
+        const getName = person.getName;
+        console.log(getName()); // 输出: undefined 或 在非严格模式下 "window" 对象的 name 属性
+
+        const boundGetName = person.getName.bind(person);
+        console.log(boundGetName()); // 输出: 'John'
+    </script>
+
+</body>
+
+</html>
