@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+  <meta charset="utf-8">
+  <title>ECharts</title>
+  <!-- 引入ECharts文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+</head>
+
+<body style="height: 100%; margin: 0">
+  <!-- 准备一个dom容器 -->
+  <div id="main" style="height: 200px;"></div>
+
+  <style>
+    #main {
+      background-color: transparent;
+    }
+  </style>
+  <script type="text/javascript">
+    var chartDom = document.getElementById('main');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    option = {
+      title: {
+        text: 'Stacked Line'
+      },
+      tooltip: {
+        trigger: 'axis'
+      },
+      legend: {
+        data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine'],
+        textStyle: {
+          fontSize: 12  // 设置legend的文字字体大小为16px
+        }
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
+      xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          name: 'Email',
+          type: 'line',
+          stack: 'Total',
+          data: [120, 132, 101, 134, 90, 230, 210]
+        },
+        {
+          name: 'Union Ads',
+          type: 'line',
+          stack: 'Total',
+          data: [220, 182, 191, 234, 290, 330, 310]
+        },
+        {
+          name: 'Video Ads',
+          type: 'line',
+          stack: 'Total',
+          data: [150, 232, 201, 154, 190, 330, 410]
+        },
+        {
+          name: 'Direct',
+          type: 'line',
+          stack: 'Total',
+          data: [320, 332, 301, 334, 390, 330, 320]
+        },
+        {
+          name: 'Search Engine',
+          type: 'line',
+          stack: 'Total',
+          data: [820, 932, 901, 934, 1290, 1330, 1320]
+        }
+      ]
+    };
+    option && myChart.setOption(option);
+  </script>
+</body>
+
+</html>

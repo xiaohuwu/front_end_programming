@@ -1,6 +1,20 @@
 body {
+  min-width: 320px;
+  max-width: 750px;
+  margin: 0 auto;
   background-color: #f2f4f7;
 }
+a {
+  text-decoration: none;
+  color: #707070;
+}
+
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 37.5px !important;
+  }
+}
+
 a {
   text-decoration: none;
 }

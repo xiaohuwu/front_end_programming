@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tab 切换示例</title>
+    <style>
+        .tabs {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .tab-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .tab-links li {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .tab-links li.active {
+            background-color: #f2f2f2;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .tab-content .tab {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .tab-content .tab.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tabs">
+        <ul class="tab-links">
+            <li class="active" data-tab="tab1">Tab 1</li>
+            <li data-tab="tab2">Tab 2</li>
+            <li data-tab="tab3">Tab 3</li>
+        </ul>
+        <div class="tab-content">
+            <div id="tab1" class="tab active">
+                <p>这是 Tab 1 的内容。</p>
+            </div>
+            <div id="tab2" class="tab">
+                <p>这是 Tab 2 的内容。</p>
+            </div>
+            <div id="tab3" class="tab">
+                <p>这是 Tab 3 的内容。</p>
+            </div>
+        </div>
+    </div>
+
+  
+</body>
+
+</html>
+<script>
+    const tabs = document.querySelectorAll('.tab-links li');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+            const target = this.dataset.tab;
+            tabs.forEach(tab => tab.classList.remove('active'));
+            tab.classList.add('active');
+
+            const tabContent = document.querySelectorAll('.tab-content .tab');
+            tabContent.forEach(content => content.classList.remove('active'));
+            document.getElementById(target).classList.add('active');
+        });
+    });
+</script>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECharts Bar Chart with Y Axis Ticks</title>
+    <!-- 引入 ECharts 的核心库 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <style>
+        /* 设置图表容器的大小 */
+        #main {
+            width: 600px;
+            height: 400px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 图表容器 -->
+    <div id="main"></div>
+
+    <script type="text/javascript">
+        var MyConstructor = function () {
+            this.myNumber = 5;
+        }
+        myNewObj = new MyConstructor(); // = {myNumber: 5}
+        myNewObj.myNumber; // = 5
+
+        // 每一个js对象都有一个‘原型’。当你要访问一个实际对象中没有定义的一个属性时，
+        // 解释器就回去找这个对象的原型。
+
+        // 一些JS实现会让你通过`__proto__`属性访问一个对象的原型。
+        // 这虽然对理解原型很有用，但是它并不是标准的一部分；
+        // 我们后面会介绍使用原型的标准方式。
+        var myObj = {
+            myString: "Hello world!"
+        };
+        var myPrototype = {
+            meaningOfLife: 42,
+            myFunc: function () {
+                return this.myString.toLowerCase()
+            }
+        };
+
+        myObj.__proto__ = myPrototype;
+        myObj.meaningOfLife; // = 42
+
+        // 函数也可以工作。
+        myObj.myFunc() // = "hello world!"
+
+        // 当然，如果你要访问的成员在原型当中也没有定义的话，解释器就会去找原型的原型，以此类推。
+        myPrototype.__proto__ = {
+            myBoolean: true
+        };
+        myObj.myBoolean; // = true
+
+        // 这其中并没有对象的拷贝；每个对象实际上是持有原型对象的引用。
+        // 这意味着当我们改变对象的原型时，会影响到其他以这个原型为原型的对象。
+        myPrototype.meaningOfLife = 43;
+        myObj.meaningOfLife; // = 43
+
+        // 我们知道 `__proto__` 并非标准规定，实际上也没有标准办法来修改一个已存在对象的原型。
+        // 然而，我们有两种方式为指定原型创建一个新的对象。
+
+        // 第一种方式是 Object.create，这个方法是在最近才被添加到Js中的，
+        // 因此并不是所有的JS实现都有这个方法
+        var myObj = Object.create(myPrototype);
+        myObj.meaningOfLife; // = 43
+
+        // 第二种方式可以在任意版本中使用，不过必须通过构造函数。
+        // 构造函数有一个属性prototype。但是它 *不是* 构造函数本身的原型；相反，
+        // 是通过构造函数和new关键字创建的新对象的原型。
+        MyConstructor.prototype = {
+            myNumber: 5,
+            getMyNumber: function () {
+                return this.myNumber;
+            }
+        };
+        var myNewObj2 = new MyConstructor();
+        myNewObj2.getMyNumber(); // = 5
+        myNewObj2.myNumber = 6
+        myNewObj2.getMyNumber(); // = 6
+
+        // 字符串和数字等内置类型也有通过构造函数来创建的包装类型
+        var myNumber = 12;
+        var myNumberObj = new Number(12);
+        myNumber == myNumberObj; // = true
+
+        // 但是它们并非严格等价
+        typeof myNumber; // = 'number'
+        typeof myNumberObj; // = 'object'
+        myNumber === myNumberObj; // = false
+        if (0) {
+            // 这段代码不会执行，因为0代表假
+        }
+
+        // 不过，包装类型和内置类型共享一个原型，
+        // 所以你实际可以给内置类型也增加一些功能，例如对string：
+        String.prototype.firstCharacter = function () {
+            return this.charAt(0);
+        }
+        "abc".firstCharacter(); // = "a"
+
+        // 这个技巧经常用在“代码填充”中，来为老版本的javascript子集增加新版本js的特性，
+        // 这样就可以在老的浏览器中使用新功能了。
+
+        // 比如，我们知道Object.create并没有在所有的版本中都实现，
+        // 但是我们仍然可以通过“代码填充”来实现兼容：
+        if (Object.create === undefined) { // 如果存在则不覆盖
+            Object.create = function (proto) {
+                // 用正确的原型来创建一个临时构造函数
+                var Constructor = function () { };
+                Constructor.prototype = proto;
+                // 之后用它来创建一个新的对象
+                return new Constructor();
+            }
+        }
+
+    </script>
+</body>
+
+</html>

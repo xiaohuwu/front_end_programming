@@ -1,7 +1,21 @@
-@base_size: 3.75vw;
-
-.box {
-    width: (100 / @base_size);
-    height: (100 / @base_size);
-    background-color: pink;
-}
+body {
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+    background-color: #f2f4f7;
+  }
+  a {
+    text-decoration: none;
+    color: #707070;
+  }
+  // 约束当屏幕大于 750px 的时候，html字体大小就不不变化了
+  @media screen and (min-width: 750px) {
+    html {
+      font-size: 37.5px !important;
+    }
+  }
+  div{
+    border: solid 1px red;
+    width: 2.6667rem;
+    height: 2.6667rem;
+  }
