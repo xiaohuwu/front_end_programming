@@ -1,20 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <style>
-    div {
-  width: 200px;
-  padding: 20px;
-  border: 5px solid black;
-}
+    .container {
+        border: solid 1px red;
+        display: table;
+        height: 200px;
+        /* 父容器的高度 */
+        width: 100%;
+    }
+
+    .content {
+        display: table-cell;
+        vertical-align: middle;
+        /* 垂直居中 */
+        text-align: center;
+        /* 水平居中 */
+    }
+
+    table {
+        border: solid 1px red;
+        height: 200px;
+        /* 父容器的高度 */
+        width: 100%;
+        border-spacing: 0px;
+    }
+
+    td {
+        vertical-align: middle;
+        /* 垂直居中 */
+        text-align: center;
+    }
 </style>
+
 <body>
-    <div>
-        
+    <div class="container">
+        <div class="content">垂直居中的内容</div>
     </div>
+    <table>
+        <tr>
+            <td>
+                垂直居中的内容
+            </td>
+        </tr>
+    </table>
 </body>
+
 </html>
